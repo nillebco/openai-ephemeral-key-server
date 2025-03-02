@@ -38,9 +38,9 @@ function isAllowedCallerId(callerId) {
 }
 
 function isAuthorized(req) {
-    const paramsKey = req.params.key;
-    if (paramsKey) {
-        return isAllowedCallerId(paramsKey);
+    const queryKey = req.query.key;
+    if (queryKey) {
+        return isAllowedCallerId(queryKey);
     }
 
     const authorization = req.headers.authorization;
