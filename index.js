@@ -1,7 +1,15 @@
 require('dotenv').config();
 const apiKey = process.env.OPENAI_API_KEY;
 const express = require('express');
+const cors = require('cors');
 const app = express();
+
+// Enable CORS for all origins
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 async function getEphemeralKey(apiKey, voice = "coral", model = "gpt-4o-realtime-preview-2024-12-17") {
     try {
