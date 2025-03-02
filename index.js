@@ -34,7 +34,7 @@ async function getEphemeralKey(apiKey, voice = "coral", model = "gpt-4o-realtime
 }
 
 function isAllowedCallerId(callerId) {
-    return callerId === process.env.ALLOWED_CALLER_ID;
+    return process.env.ALLOWED_CALLER_ID.split(",").includes(callerId);
 }
 
 function isAuthorized(req) {
